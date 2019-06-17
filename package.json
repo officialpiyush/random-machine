@@ -8,6 +8,7 @@
   "license": "GNU GPLv3",
   "private": false,
   "devDependencies": {
+    "docma": "^3.2.2",
     "tslint": "^5.17.0",
     "typescript": "^3.5.2"
   }
