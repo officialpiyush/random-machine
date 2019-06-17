@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: index.js</title>
+    <title>JSDoc: Source: lib/CatMachine.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: index.js</h1>
+    <h1 class="page-title">Source: lib/CatMachine.js</h1>
 
     
 
@@ -30,28 +30,36 @@
 /**
  * @author Piyush Bhangale &lt;bhangalepiyush@gmail.com>
  * @license GNU GPLv3
- * @file Export all classes of the package
+ * @file The file where cat machine code lies
  */
-const CatMachine = require("./lib/CatMachine");
-const FoodMachine = require("./lib/FoodMachine");
-module.exports = {
+/**
+ * @class
+ * @desc The CatMachine class which returns random cute cats.
+ */
+class CatMachine {
     /**
-     * @since 0.1.0
-     * @description What version the package is on
+     * @constructor
+     * @desc Constructor of CatMachine class
      */
-    version: require("../package.json").version,
+    constructor() {
+        /**
+         * @protected
+         * @desc Cat Images
+         * @since 1.0.0
+         */
+        this.images = ["https://cataas.com/cat"];
+    }
     /**
      * @since 0.5.0
-     * @description Class which returns random food images
+     * @desc Get a random cute cat.
+     * @returns {String} - A random cute cat
      */
-    FoodMachine,
-    /**
-     * @since 1.0.0
-     * @description Class which returns random cute cats
-     */
-    CatMachine,
-};
-//# sourceMappingURL=index.js.map</code></pre>
+    random() {
+        return this.images[Math.floor(Math.random() * this.images.length)];
+    }
+}
+module.exports = CatMachine;
+//# sourceMappingURL=CatMachine.js.map</code></pre>
         </article>
     </section>
 
