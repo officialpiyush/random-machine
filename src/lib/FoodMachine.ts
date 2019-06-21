@@ -4,12 +4,15 @@
  * @file The file where food machine code lies
  */
 
+import f, { Response } from "node-fetch";
+
  /**
   * @class
   * @desc The FoodMachine class which returns random images of food.
   */
- class FoodMachine {
+class FoodMachine {
      protected images: string[];
+     private r: string;
 
      /**
       * @constructor
@@ -193,6 +196,11 @@
          "https://officialpiyush.github.io/cdn/food/v1_a9667ff1.png" ,
          "https://officialpiyush.github.io/cdn/food/wp1929358.jpg" ,
          "https://officialpiyush.github.io/cdn/food/wp1929499.jpg"];
+
+         /**
+          * @ignore
+          */
+         this.r = "";
      }
 
      /**
@@ -201,7 +209,19 @@
       * @returns {String} - A random food image
       */
      public random(): string {
-        return this.images[Math.floor(Math.random() * this.images.length)];
+        const i = this.images[Math.floor(Math.random() * this.images.length)];
+        this.r = i;
+        return i;
+     }
+
+     /**
+      * Get the buffer pf a random food. You need to call [random]{@link FoodMachine#random} function before.
+      * @returns Promise<Buffer>
+      * @since 1.1.0
+      */
+     public toBuffer(): Promise<Buffer> {
+         return f(this.r)
+                    .then((m: Response) => m.buffer());
      }
  }
 
@@ -209,4 +229,4 @@
  /**
   * @exports FoodMachine
   */
- export = FoodMachine;
+export = FoodMachine;

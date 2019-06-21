@@ -1,6 +1,6 @@
 {
   "name": "random-machine",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "An Package which returns random useful things",
   "main": "build/index.js",
   "repository": "https://github.com/officialpiyush/random-machine.git",
@@ -8,8 +8,13 @@
   "license": "GNU GPLv3",
   "private": false,
   "devDependencies": {
+    "@types/node-fetch": "^2.3.7",
     "docma": "^3.2.2",
+    "jsdoc-plugin-typescript": "^2.0.1",
     "tslint": "^5.17.0",
     "typescript": "^3.5.2"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
   }
 }
